@@ -5,7 +5,7 @@ out/
 build/
 target/
 
-# Fichiers de données (optionnel - décommentez si vous ne voulez pas versionner les données)
+# Fichiers de données
 data/
 *.dat
 
@@ -31,7 +31,4 @@ Thumbs.db
 *.tmp
 *.bak
 *.cache
-
-# Fichiers de compilation Windows
-*.bat.bak
 
