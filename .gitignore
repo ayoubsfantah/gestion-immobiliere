@@ -1,0 +1,37 @@
+# Fichiers compilés Java
+*.class
+bin/
+out/
+build/
+target/
+
+# Fichiers de données (optionnel - décommentez si vous ne voulez pas versionner les données)
+data/
+*.dat
+
+# Fichiers IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Fichiers de logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.cache
+
+# Fichiers de compilation Windows
+*.bat.bak
+
