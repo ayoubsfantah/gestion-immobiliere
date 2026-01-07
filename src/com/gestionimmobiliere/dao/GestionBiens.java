@@ -4,10 +4,7 @@ import com.gestionimmobiliere.model.Bien;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Classe de gestion des biens immobiliers avec persistance
- */
+/* Classe de gestion des biens immobiliers avec persistance*/
 public class GestionBiens {
     private static final String FICHIER_DONNEES = "data/biens.dat";
     private List<Bien> biens;
@@ -17,19 +14,13 @@ public class GestionBiens {
         this.biens = new ArrayList<>();
         chargerDonnees();
     }
-
-    /**
-     * Ajouter un nouveau bien
-     */
+    /* Ajouter un nouveau bien*/
     public void ajouterBien(Bien bien) {
         bien.setId(++dernierId);
         biens.add(bien);
         sauvegarderDonnees();
     }
-
-    /**
-     * Modifier un bien existant
-     */
+    /* Modifier un bien existant*/
     public boolean modifierBien(Bien bienModifie) {
         for (int i = 0; i < biens.size(); i++) {
             if (biens.get(i).getId() == bienModifie.getId()) {
@@ -40,10 +31,7 @@ public class GestionBiens {
         }
         return false;
     }
-
-    /**
-     * Supprimer un bien
-     */
+    /* Supprimer un bien*/
     public boolean supprimerBien(int id) {
         Bien bien = biens.stream()
                 .filter(b -> b.getId() == id)
@@ -57,9 +45,7 @@ public class GestionBiens {
         return false;
     }
 
-    /**
-     * Obtenir un bien par son ID
-     */
+    /* Obtenir un bien par son ID*/
     public Bien obtenirBien(int id) {
         return biens.stream()
                 .filter(b -> b.getId() == id)
@@ -67,16 +53,12 @@ public class GestionBiens {
                 .orElse(null);
     }
 
-    /**
-     * Obtenir tous les biens
-     */
+    /* Obtenir tous les biens*/
     public List<Bien> obtenirTousLesBiens() {
         return new ArrayList<>(biens);
     }
 
-    /**
-     * Rechercher des biens par critères
-     */
+    /* Rechercher des biens par critères */
     public List<Bien> rechercherBiens(String recherche) {
         List<Bien> resultats = new ArrayList<>();
         String rechercheLower = recherche.toLowerCase();
@@ -90,9 +72,7 @@ public class GestionBiens {
         return resultats;
     }
 
-    /**
-     * Obtenir les biens disponibles
-     */
+    /* Obtenir les biens disponibles */
     public List<Bien> obtenirBiensDisponibles() {
         List<Bien> disponibles = new ArrayList<>();
         for (Bien bien : biens) {
@@ -103,9 +83,7 @@ public class GestionBiens {
         return disponibles;
     }
 
-    /**
-     * Charger les données depuis le fichier
-     */
+    /* Charger les données depuis le fichier */
     @SuppressWarnings("unchecked")
     private void chargerDonnees() {
         File fichier = new File(FICHIER_DONNEES);
@@ -128,9 +106,7 @@ public class GestionBiens {
         }
     }
 
-    /**
-     * Sauvegarder les données dans le fichier
-     */
+    /* Sauvegarder les données dans le fichier */
     private void sauvegarderDonnees() {
         try {
             File fichier = new File(FICHIER_DONNEES);

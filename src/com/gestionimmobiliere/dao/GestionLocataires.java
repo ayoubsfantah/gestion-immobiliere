@@ -5,9 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe de gestion des locataires avec persistance
- */
+/* Classe de gestion des locataires avec persistance*/
 public class GestionLocataires {
     private static final String FICHIER_DONNEES = "data/locataires.dat";
     private List<Locataire> locataires;
@@ -18,18 +16,14 @@ public class GestionLocataires {
         chargerDonnees();
     }
 
-    /**
-     * Ajouter un nouveau locataire
-     */
+    /* Ajouter un nouveau locataire*/
     public void ajouterLocataire(Locataire locataire) {
         locataire.setId(++dernierId);
         locataires.add(locataire);
         sauvegarderDonnees();
     }
 
-    /**
-     * Modifier un locataire existant
-     */
+    /* Modifier un locataire existant*/
     public boolean modifierLocataire(Locataire locataireModifie) {
         for (int i = 0; i < locataires.size(); i++) {
             if (locataires.get(i).getId() == locataireModifie.getId()) {
@@ -41,9 +35,7 @@ public class GestionLocataires {
         return false;
     }
 
-    /**
-     * Supprimer un locataire
-     */
+    /* Supprimer un locataire*/
     public boolean supprimerLocataire(int id) {
         Locataire locataire = locataires.stream()
                 .filter(l -> l.getId() == id)
@@ -57,9 +49,7 @@ public class GestionLocataires {
         return false;
     }
 
-    /**
-     * Obtenir un locataire par son ID
-     */
+    /* Obtenir un locataire par son ID*/
     public Locataire obtenirLocataire(int id) {
         return locataires.stream()
                 .filter(l -> l.getId() == id)
@@ -67,16 +57,12 @@ public class GestionLocataires {
                 .orElse(null);
     }
 
-    /**
-     * Obtenir tous les locataires
-     */
+    /* Obtenir tous les locataires*/
     public List<Locataire> obtenirTousLesLocataires() {
         return new ArrayList<>(locataires);
     }
 
-    /**
-     * Rechercher des locataires par critères
-     */
+    /* Rechercher des locataires par critères */
     public List<Locataire> rechercherLocataires(String recherche) {
         List<Locataire> resultats = new ArrayList<>();
         String rechercheLower = recherche.toLowerCase();
@@ -91,9 +77,7 @@ public class GestionLocataires {
         return resultats;
     }
 
-    /**
-     * Charger les données depuis le fichier
-     */
+    /* Charger les données depuis le fichier */
     @SuppressWarnings("unchecked")
     private void chargerDonnees() {
         File fichier = new File(FICHIER_DONNEES);
@@ -115,9 +99,7 @@ public class GestionLocataires {
         }
     }
 
-    /**
-     * Sauvegarder les données dans le fichier
-     */
+    /* Sauvegarder les données dans le fichier */
     private void sauvegarderDonnees() {
         try {
             File fichier = new File(FICHIER_DONNEES);

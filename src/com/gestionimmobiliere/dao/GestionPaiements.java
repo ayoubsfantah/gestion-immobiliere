@@ -5,9 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe de gestion des paiements avec persistance
- */
+/* Classe de gestion des paiements avec persistance*/
 public class GestionPaiements {
     private static final String FICHIER_DONNEES = "data/paiements.dat";
     private List<Paiement> paiements;
@@ -18,18 +16,14 @@ public class GestionPaiements {
         chargerDonnees();
     }
 
-    /**
-     * Ajouter un nouveau paiement
-     */
+    /* Ajouter un nouveau paiement*/
     public void ajouterPaiement(Paiement paiement) {
         paiement.setId(++dernierId);
         paiements.add(paiement);
         sauvegarderDonnees();
     }
 
-    /**
-     * Modifier un paiement existant
-     */
+    /* Modifier un paiement existant*/
     public boolean modifierPaiement(Paiement paiementModifie) {
         for (int i = 0; i < paiements.size(); i++) {
             if (paiements.get(i).getId() == paiementModifie.getId()) {
@@ -41,9 +35,7 @@ public class GestionPaiements {
         return false;
     }
 
-    /**
-     * Supprimer un paiement
-     */
+    /* Supprimer un paiement*/
     public boolean supprimerPaiement(int id) {
         Paiement paiement = paiements.stream()
                 .filter(p -> p.getId() == id)
@@ -57,9 +49,7 @@ public class GestionPaiements {
         return false;
     }
 
-    /**
-     * Obtenir un paiement par son ID
-     */
+    /* Obtenir un paiement par son ID*/
     public Paiement obtenirPaiement(int id) {
         return paiements.stream()
                 .filter(p -> p.getId() == id)
@@ -67,16 +57,12 @@ public class GestionPaiements {
                 .orElse(null);
     }
 
-    /**
-     * Obtenir tous les paiements
-     */
+    /* Obtenir tous les paiements*/
     public List<Paiement> obtenirTousLesPaiements() {
         return new ArrayList<>(paiements);
     }
 
-    /**
-     * Obtenir les paiements d'un loyer
-     */
+    /* Obtenir les paiements d'un loyer*/
     public List<Paiement> obtenirPaiementsParLoyer(int loyerId) {
         List<Paiement> resultats = new ArrayList<>();
         for (Paiement paiement : paiements) {
@@ -87,9 +73,7 @@ public class GestionPaiements {
         return resultats;
     }
 
-    /**
-     * Obtenir les paiements payés
-     */
+    /* Obtenir les paiements payés*/
     public List<Paiement> obtenirPaiementsPayes() {
         List<Paiement> payes = new ArrayList<>();
         for (Paiement paiement : paiements) {
@@ -100,9 +84,7 @@ public class GestionPaiements {
         return payes;
     }
 
-    /**
-     * Obtenir les paiements en retard
-     */
+    /* Obtenir les paiements en retard*/
     public List<Paiement> obtenirPaiementsEnRetard() {
         List<Paiement> enRetard = new ArrayList<>();
         for (Paiement paiement : paiements) {
@@ -113,9 +95,7 @@ public class GestionPaiements {
         return enRetard;
     }
 
-    /**
-     * Calculer le total des paiements pour un loyer
-     */
+    /* Calculer le total des paiements pour un loyer*/
     public double calculerTotalPaiements(int loyerId) {
         double total = 0.0;
         for (Paiement paiement : paiements) {
@@ -126,9 +106,7 @@ public class GestionPaiements {
         return total;
     }
 
-    /**
-     * Charger les données depuis le fichier
-     */
+    /* Charger les données depuis le fichier*/
     @SuppressWarnings("unchecked")
     private void chargerDonnees() {
         File fichier = new File(FICHIER_DONNEES);
@@ -149,9 +127,7 @@ public class GestionPaiements {
         }
     }
 
-    /**
-     * Sauvegarder les données dans le fichier
-     */
+    /* Sauvegarder les données dans le fichier*/
     private void sauvegarderDonnees() {
         try {
             File fichier = new File(FICHIER_DONNEES);

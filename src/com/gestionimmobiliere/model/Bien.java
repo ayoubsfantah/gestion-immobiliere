@@ -2,9 +2,7 @@ package com.gestionimmobiliere.model;
 
 import java.io.Serializable;
 
-/**
- * Classe représentant un bien immobilier
- */
+/* Classe représentant un bien immobilier*/
 public class Bien implements Serializable {
     private static final long serialVersionUID = 1L;
     

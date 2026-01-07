@@ -5,9 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe de gestion des loyers avec persistance
- */
+/* Classe  de gestion des loyers avec persistance*/
 public class GestionLoyers {
     private static final String FICHIER_DONNEES = "data/loyers.dat";
     private List<Loyer> loyers;
@@ -18,18 +16,14 @@ public class GestionLoyers {
         chargerDonnees();
     }
 
-    /**
-     * Ajouter un nouveau loyer
-     */
+    /*Ajouter un nouveau loyer*/
     public void ajouterLoyer(Loyer loyer) {
         loyer.setId(++dernierId);
         loyers.add(loyer);
         sauvegarderDonnees();
     }
 
-    /**
-     * Modifier un loyer existant
-     */
+    /* Modifier un loyer existant*/
     public boolean modifierLoyer(Loyer loyerModifie) {
         for (int i = 0; i < loyers.size(); i++) {
             if (loyers.get(i).getId() == loyerModifie.getId()) {
@@ -41,9 +35,7 @@ public class GestionLoyers {
         return false;
     }
 
-    /**
-     * Supprimer un loyer
-     */
+    /* Supprimer un loyer*/
     public boolean supprimerLoyer(int id) {
         Loyer loyer = loyers.stream()
                 .filter(l -> l.getId() == id)
@@ -57,9 +49,7 @@ public class GestionLoyers {
         return false;
     }
 
-    /**
-     * Obtenir un loyer par son ID
-     */
+    /* Obtenir un loyer par son ID*/
     public Loyer obtenirLoyer(int id) {
         return loyers.stream()
                 .filter(l -> l.getId() == id)
@@ -67,16 +57,12 @@ public class GestionLoyers {
                 .orElse(null);
     }
 
-    /**
-     * Obtenir tous les loyers
-     */
+    /* Obtenir tous les loyers*/
     public List<Loyer> obtenirTousLesLoyers() {
         return new ArrayList<>(loyers);
     }
 
-    /**
-     * Obtenir les loyers actifs
-     */
+    /* Obtenir les loyers actifs*/
     public List<Loyer> obtenirLoyersActifs() {
         List<Loyer> actifs = new ArrayList<>();
         for (Loyer loyer : loyers) {
@@ -87,9 +73,7 @@ public class GestionLoyers {
         return actifs;
     }
 
-    /**
-     * Obtenir les loyers d'un bien
-     */
+    /* Obtenir les loyers d'un bien*/
     public List<Loyer> obtenirLoyersParBien(int bienId) {
         List<Loyer> resultats = new ArrayList<>();
         for (Loyer loyer : loyers) {
@@ -100,9 +84,7 @@ public class GestionLoyers {
         return resultats;
     }
 
-    /**
-     * Obtenir les loyers d'un locataire
-     */
+    /* Obtenir les loyers d'un locataire*/
     public List<Loyer> obtenirLoyersParLocataire(int locataireId) {
         List<Loyer> resultats = new ArrayList<>();
         for (Loyer loyer : loyers) {
@@ -113,9 +95,7 @@ public class GestionLoyers {
         return resultats;
     }
 
-    /**
-     * Charger les données depuis le fichier
-     */
+    /* Charger les données depuis le fichier*/
     @SuppressWarnings("unchecked")
     private void chargerDonnees() {
         File fichier = new File(FICHIER_DONNEES);
@@ -136,9 +116,7 @@ public class GestionLoyers {
         }
     }
 
-    /**
-     * Sauvegarder les données dans le fichier
-     */
+    /* Sauvegarder les données dans le fichier*/
     private void sauvegarderDonnees() {
         try {
             File fichier = new File(FICHIER_DONNEES);

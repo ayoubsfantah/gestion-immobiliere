@@ -2,9 +2,7 @@ package com.gestionimmobiliere.model;
 
 import java.io.Serializable;
 
-/**
- * Classe représentant un contrat de location (loyer)
- */
+/* Classe représentant un contrat de location (loyer)*/
 public class Loyer implements Serializable {
     private static final long serialVersionUID = 1L;
     
